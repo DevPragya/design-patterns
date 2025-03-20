@@ -2,20 +2,25 @@ package org.example;
 import java.sql.SQLOutput;
 import java.util.Scanner;
 import org.example.solutions.PrefixSum;
+import org.example.solutions.MiniProject;
+
+//import static org.example.solutions.MiniProject.guessTheNumber; // to call a static method by including in import
 
 public class Main {
 
     private enum DesignPatterns {
         PREFIX_SUM,
-        LINKED_LIST
+        LINKED_LIST,
+        MINI_PROJECT
     }
 
-    private static DesignPatterns currentChoice = DesignPatterns.LINKED_LIST;
+    private static DesignPatterns currentChoice = DesignPatterns.MINI_PROJECT;
 
     public static void main(String[] args) {
         switch(currentChoice) {
             case PREFIX_SUM -> callPrefixSum();
             case LINKED_LIST -> call2();
+            case MINI_PROJECT -> callMiniProject();
         }
     }
 
@@ -42,8 +47,8 @@ public class Main {
 
         //Step 3: Call the method to find the sum
         PrefixSum prefixSum = new PrefixSum();
+//        int result = prefixSum.findSubarraySum(array, start, end);
         int result = prefixSum.findSubarraySum(array, start, end);
-
 
         //Step 4: Print the result
         if (result != -1) {
@@ -56,7 +61,10 @@ public class Main {
     private static void call2() {
         System.out.println("I am in call2");
     }
+
+    public static void callMiniProject() {
+        MiniProject.guessTheNumber(); // to call a static method by using it's class name
 }
 
-
+}
 
